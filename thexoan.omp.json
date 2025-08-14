@@ -1,0 +1,57 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none",
+            "style": "folder"
+          },
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b0",
+          "template": " \ue5ff {{ .Path }} ",
+          "foreground": "#262b44",
+          "powerline_symbol": "\ue0b0",
+          "background": "#feae34",
+          "type": "path",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          },
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ if .Working.Changed }} +{{ end }}",
+          "foreground": "#262b44",
+          "powerline_symbol": "\ue0b0",
+          "background": "#4CAF50",
+          "type": "git",
+          "style": "powerline",
+          "background_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}#f77622{{ else }}#4CAF50{{ end }}"
+          ]
+        },
+        {
+          "properties": {
+            "always_enabled": true,
+            "cache_duration": "none"
+          },
+          "leading_diamond": "<transparent,background>\ue0b0</>",
+          "trailing_diamond": "\ue0b4",
+          "template": "{{ if gt .Code 0 }} \uf0e7 {{ end }}",
+          "foreground": "#ffffff",
+          "background": "#ff0044",
+          "type": "status",
+          "style": "diamond"
+        }
+      ]
+    }
+  ],
+  "version": 3,
+  "final_space": true
+}
